@@ -10,3 +10,8 @@ Link til Bootstrap 3:
 Legg denne under jquery linjen
 
 Bootstrap 3 Dokumentasjon: https://getbootstrap.com/docs/3.3/css/
+
+Husk også den linjen her om dere ikke har den (gjør at ting scaler riktig på mobil):
+```
+<meta name="viewport" content="width=device-width, initial-scale=1">
+```
