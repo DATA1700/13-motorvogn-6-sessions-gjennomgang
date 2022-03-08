@@ -1,4 +1,12 @@
-# Ukeoppgave: Lagre i array på server
+# Ukeoppgaver: Bootstrap
 
+Tar utgangspunkt i motorvognregisteret fra forrige uke. Bruker Bootstrap for å "style" GUI
 
-Lag et register for motorvogner. Det skal være mulig å lagre motorvogner (biler) i et array på server. Videre skal det være mulig å slette alle bilene i registeret med en knapp.
+Link til Bootstrap 3:
+```
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+```
+
+Legg denne under jquery linjen
+
+Bootstrap 3 Dokumentasjon: https://getbootstrap.com/docs/3.3/css/
