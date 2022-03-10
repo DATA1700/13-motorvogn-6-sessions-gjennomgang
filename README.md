@@ -1,17 +1,3 @@
-# Ukeoppgaver: Bootstrap
+# Ukeoppgaver: Nedtrekkslister
 
-Tar utgangspunkt i motorvognregisteret fra forrige uke. Bruker Bootstrap for å "style" GUI
-
-Link til Bootstrap 3:
-```
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-```
-
-Legg denne under jquery linjen
-
-Bootstrap 3 Dokumentasjon: https://getbootstrap.com/docs/3.3/css/
-
-Husk også den linjen her om dere ikke har den (gjør at ting scaler riktig på mobil):
-```
-<meta name="viewport" content="width=device-width, initial-scale=1">
-```
+Gjør om motorvognregisteroppgaven fra forrige uke til å bruke nedtrekkslister for merke og type (modell).  Avhengig av valgt merke skal de tilhørende typene (modellene) vises. Bilene skal bygges på server og legges i et array. Lasting av bilene inn i arrayet bør gjøres i en konstruktør til controlleren.
