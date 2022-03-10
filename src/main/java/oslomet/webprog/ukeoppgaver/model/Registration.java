@@ -1,6 +1,6 @@
 package oslomet.webprog.ukeoppgaver.model;
 
-public class Vehicle {
+public class Registration {
     private String ssn;
     private String name;
     private String address;
@@ -8,7 +8,7 @@ public class Vehicle {
     private String brand;
     private String type;
 
-    public Vehicle(String ssn, String name, String address, String characteristics, String brand, String type) {
+    public Registration(String ssn, String name, String address, String characteristics, String brand, String type) {
         this.ssn = ssn;
         this.name = name;
         this.address = address;

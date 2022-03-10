@@ -7,7 +7,7 @@ $(() => {
         const brand = $("#chosenBrand");
         const type = $("#chosenType");
 
-        const vehicle = {
+        const registration = {
             ssn: ssn.val(),
             name: name.val(),
             address: address.val(),
@@ -16,8 +16,8 @@ $(() => {
             type: type.val()
         }
 
-        if (inputval(vehicle)) {
-            $.post("/api", vehicle, () => fetchVehicles())
+        if (inputval(registration)) {
+            $.post("/api", registration, () => fetchRegistrations())
 
             ssn.val("")
             name.val("")
@@ -33,7 +33,7 @@ $(() => {
     $("#deleteAll").click(() => {
         $.ajax("/api", {
             type: "DELETE",
-            success: () => fetchVehicles(),
+            success: () => fetchRegistrations(),
             error: (jqXhr, textStatus, errorMessage) => console.log(errorMessage)
         })
     });
@@ -42,10 +42,10 @@ $(() => {
 
     resetTypeInput();
 
-    fetchVehicles();
+    fetchRegistrations();
 })
 
-const fetchVehicles = () => $.get("/api/vehicles", list => formatList(list))
+const fetchRegistrations = () => $.get("/api/registrations", list => formatList(list))
 
 const formatList = list => {
     let msg = "";
@@ -53,9 +53,9 @@ const formatList = list => {
     if (list.length > 0) {
         msg += "<table class='table table-striped'><tr><th>Personnr</th><th>Navn</th><th>Adresse</th><th>Kjennetegn</th><th>Merke</th><th>Type</th></tr>"
 
-        for (let vehicle of list) {
-            msg += "<tr><td>" + vehicle.ssn + "</td><td>" + vehicle.name + "</td><td>" + vehicle.address + "</td>" +
-                "<td>" + vehicle.characteristics + "</td><td>" + vehicle.brand + "</td><td>" + vehicle.type + "</td></tr>"
+        for (let registration of list) {
+            msg += "<tr><td>" + registration.ssn + "</td><td>" + registration.name + "</td><td>" + registration.address + "</td>" +
+                "<td>" + registration.characteristics + "</td><td>" + registration.brand + "</td><td>" + registration.type + "</td></tr>"
         }
 
         msg += "</table>";
@@ -113,11 +113,11 @@ const resetTypeInput = () => {
 
 }
 
-const inputval = vehicle => {
-    if (vehicle.ssn === "") return false
-    else if (vehicle.name === "") return false
-    else if (vehicle.address === "") return false
-    else if (vehicle.characteristics === "") return false
-    else if (vehicle.brand === "") return false
-    else return vehicle.type !== "" && vehicle.type != null;
+const inputval = registration => {
+    if (registration.ssn === "") return false
+    else if (registration.name === "") return false
+    else if (registration.address === "") return false
+    else if (registration.characteristics === "") return false
+    else if (registration.brand === "") return false
+    else return registration.type !== "" && registration.type != null;
 }

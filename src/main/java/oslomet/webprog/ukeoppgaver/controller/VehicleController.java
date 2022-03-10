@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import oslomet.webprog.ukeoppgaver.model.Car;
-import oslomet.webprog.ukeoppgaver.model.Vehicle;
+import oslomet.webprog.ukeoppgaver.model.Registration;
 import oslomet.webprog.ukeoppgaver.repository.VehicleRepository;
 
 import java.util.List;
@@ -18,13 +18,13 @@ public class VehicleController {
     VehicleRepository repo;
 
     @PostMapping("/api")
-    public void add(Vehicle vehicle){
-        repo.addVehicle(vehicle);
+    public void add(Registration registration){
+        repo.addRegistrations(registration);
     }
 
-    @GetMapping("/api/vehicles")
-    public List<Vehicle> getAllVehicles(){
-        return repo.getVehicles();
+    @GetMapping("/api/registrations")
+    public List<Registration> getAllRegistrations(){
+        return repo.getRegistrations();
     }
 
     @GetMapping("/api/cars")

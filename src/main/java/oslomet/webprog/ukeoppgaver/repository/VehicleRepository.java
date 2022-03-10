@@ -2,7 +2,7 @@ package oslomet.webprog.ukeoppgaver.repository;
 
 import org.springframework.stereotype.Repository;
 import oslomet.webprog.ukeoppgaver.model.Car;
-import oslomet.webprog.ukeoppgaver.model.Vehicle;
+import oslomet.webprog.ukeoppgaver.model.Registration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public class VehicleRepository {
 
-    private final List<Vehicle> vehicles = new ArrayList<>();
+    private final List<Registration> registrations = new ArrayList<>();
     private final List<Car> cars = new ArrayList<>();
 
     public VehicleRepository() {
@@ -32,12 +32,12 @@ public class VehicleRepository {
         cars.add(car8);
     }
 
-    public void addVehicle(Vehicle vehicle){
-        vehicles.add(vehicle);
+    public void addRegistrations(Registration registration){
+        registrations.add(registration);
     }
 
-    public List<Vehicle> getVehicles(){
-        return vehicles;
+    public List<Registration> getRegistrations(){
+        return registrations;
     }
 
     public List<Car> getCars() {
@@ -45,7 +45,7 @@ public class VehicleRepository {
     }
 
     public void deleteVehicles(){
-        vehicles.clear();
+        registrations.clear();
     }
 
 }
