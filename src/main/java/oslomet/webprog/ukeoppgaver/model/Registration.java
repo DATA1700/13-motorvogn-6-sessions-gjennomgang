@@ -17,6 +17,10 @@ public class Registration {
         this.type = type;
     }
 
+    public Registration() {
+
+    }
+
     public String getSsn() {
         return ssn;
     }
