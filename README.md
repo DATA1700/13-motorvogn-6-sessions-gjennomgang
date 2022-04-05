@@ -1,3 +1,9 @@
-# Ukeoppgaver: Nedtrekkslister
+# Ukeoppgaver: SQL 1
 
-Gjør om motorvognregisteroppgaven fra forrige uke til å bruke nedtrekkslister for merke og type (modell).  Avhengig av valgt merke skal de tilhørende typene (modellene) vises. Bilene skal bygges på server og legges i et array. Lasting av bilene inn i arrayet bør gjøres i en konstruktør til controlleren.
+Oppgave 1
+
+Bytt ut de to arrayene med to tabeller i en relasjonsdatabase. Flytt initieringen av bil-tabellen til en data.sql fil (fra konstruktøren i controlleren).
+
+Oppgave 2
+
+Gjør om på GUI (og server) slik at det er mulig å slette en og en motorvogn via knapp i tabellen
