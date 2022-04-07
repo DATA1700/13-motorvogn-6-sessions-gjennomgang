@@ -32,6 +32,11 @@ public class VehicleController {
         return repo.getCars();
     }
 
+    @GetMapping("/api/deleteSingleRegistration")
+    public void deleteSingleRegistration(String id) {
+        repo.deleteSingleRegistration(id);
+    }
+
     @DeleteMapping("/api")
     public void deleteAll(){
         repo.deleteVehicles();

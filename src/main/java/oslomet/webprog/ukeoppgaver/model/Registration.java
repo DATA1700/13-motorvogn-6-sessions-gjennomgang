@@ -1,6 +1,7 @@
 package oslomet.webprog.ukeoppgaver.model;
 
 public class Registration {
+    private int id;
     private String ssn;
     private String name;
     private String address;
@@ -8,7 +9,8 @@ public class Registration {
     private String brand;
     private String type;
 
-    public Registration(String ssn, String name, String address, String characteristics, String brand, String type) {
+    public Registration(int id, String ssn, String name, String address, String characteristics, String brand, String type) {
+        this.id = id;
         this.ssn = ssn;
         this.name = name;
         this.address = address;
@@ -19,6 +21,14 @@ public class Registration {
 
     public Registration() {
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getSsn() {

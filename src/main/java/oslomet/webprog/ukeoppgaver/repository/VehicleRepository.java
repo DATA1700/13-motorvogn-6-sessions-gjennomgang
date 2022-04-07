@@ -45,11 +45,19 @@ public class VehicleRepository {
         }
     }
 
+    public void deleteSingleRegistration(String id) {
+        try {
+            db.update("delete from Registrations where id = ?", id);
+        } catch (Exception e) {
+            System.out.println("Noe gikk glat i repo sin deleteSingleRegistration");
+        }
+    }
+
     public void deleteVehicles(){
         try {
             db.update("delete from Registrations");
         } catch (Exception e) {
-            System.out.println("Noe gikk glat i repo sin getCars");
+            System.out.println("Noe gikk glat i repo sin deleteVehicles");
         }
     }
 
