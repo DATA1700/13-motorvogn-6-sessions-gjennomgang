@@ -27,11 +27,30 @@ public class VehicleRepository {
         }
     }
 
+    public void changeOneRegistration(Registration registration) {
+        try {
+            db.update("update Registrations set ssn=?, name=?, address=?, characteristics=?, brand=?, type=? where id=?",
+                    registration.getSsn(), registration.getName(), registration.getAddress(),
+                    registration.getCharacteristics(), registration.getBrand(), registration.getType(), registration.getId());
+        } catch (Exception e) {
+            return;
+        }
+
+    }
+
     public List<Registration> getRegistrations(){
         try {
             return db.query("select * from Registrations", new BeanPropertyRowMapper<>(Registration.class));
         } catch (Exception e) {
             System.out.println("Noe gikk glat i repo sin getRegistration");
+            return null;
+        }
+    }
+
+    public Registration getOneRegistration(String id) {
+        try {
+            return db.query("select * from Registrations where id=?", new BeanPropertyRowMapper<>(Registration.class), id).get(0);
+        } catch (Exception e) {
             return null;
         }
     }

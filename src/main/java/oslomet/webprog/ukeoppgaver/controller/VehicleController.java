@@ -17,9 +17,14 @@ public class VehicleController {
     @Autowired
     VehicleRepository repo;
 
-    @PostMapping("/api")
+    @PostMapping("/api/add")
     public void add(Registration registration){
         repo.addRegistrations(registration);
+    }
+
+    @PostMapping("api/changeOneRegistration")
+    public void changeOneRegistration(Registration registration) {
+        repo.changeOneRegistration(registration);
     }
 
     @GetMapping("/api/registrations")
@@ -30,6 +35,11 @@ public class VehicleController {
     @GetMapping("/api/cars")
     public List<Car> getAllCars(){
         return repo.getCars();
+    }
+
+    @GetMapping("/api/getOneRegistration")
+    public Registration getOneRegistration(String id){
+        return repo.getOneRegistration(id);
     }
 
     @GetMapping("/api/deleteSingleRegistration")
