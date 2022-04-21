@@ -1,6 +1,7 @@
 package oslomet.webprog.ukeoppgaver.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,6 +10,8 @@ import oslomet.webprog.ukeoppgaver.model.Car;
 import oslomet.webprog.ukeoppgaver.model.Registration;
 import oslomet.webprog.ukeoppgaver.repository.VehicleRepository;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -28,7 +31,10 @@ public class VehicleController {
     }
 
     @GetMapping("/api/registrations")
-    public List<Registration> getAllRegistrations(){
+    public List<Registration> getAllRegistrations(HttpServletResponse response) throws IOException {
+        if (repo.getRegistrations() == null) {
+            response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Feil i DB Controller, getAllRegistrations()");
+        }
         return repo.getRegistrations();
     }
 
@@ -38,7 +44,10 @@ public class VehicleController {
     }
 
     @GetMapping("/api/getOneRegistration")
-    public Registration getOneRegistration(String id){
+    public Registration getOneRegistration(String id, HttpServletResponse response) throws IOException {
+        if (repo.getOneRegistration(id) == null) {
+            response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Feil i DB Controller, getOneRegistration()");
+        }
         return repo.getOneRegistration(id);
     }
 

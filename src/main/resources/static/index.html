@@ -19,35 +19,10 @@
         <div class="col-md-4">
             <h1>Motorvognregister</h1>
 
-            <form>
-                <div class="form-group">
-                    <label for="ssn">Eiers personnummer</label>
-                    <input class="form-control" type="text" id="ssn"/>
-                </div>
-                <div class="form-group">
-                    <label for="name">Eiers navn</label>
-                    <input class="form-control" type="text" id="name"/>
-                </div>
-                <div class="form-group">
-                    <label for="address">Eiers adresse</label>
-                    <input class="form-control" type="text" id="address"/>
-                </div>
-                <div class="form-group">
-                    <label for="characteristics">Kjennetegn</label>
-                    <input class="form-control" type="text" id="characteristics"/>
-                </div>
-                <div class="form-group">
-                    <label for="brand">Bilmerke</label>
-                    <div class="dropdown" id="brand"></div>
-                </div>
-                <div class="form-group">
-                    <label for="type">Biltype</label>
-                    <div class="dropdown" id="type"></div>
-                </div>
-            </form>
-
-            <button class="btn btn-primary" id="register">Registrer</button>
+            <a class="btn btn-primary" href="/registrer.html">Registrer ny bil</a>
             <button class="btn btn-danger" id="deleteAll">Slett alle</button>
+
+            <div id="fail" style="color: red;"></div>
 
         </div>
 

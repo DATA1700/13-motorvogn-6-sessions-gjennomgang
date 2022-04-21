@@ -17,14 +17,9 @@ $(() => {
         }
 
         if (inputval(registration)) {
-            $.post("/api/add", registration, () => fetchRegistrations())
-
-            ssn.val("")
-            name.val("")
-            address.val("")
-            characteristics.val("")
-            formatBrandInput()
-            resetTypeInput()
+            $.post("/api/add", registration, () => {
+                window.location.href = "/";
+            })
         } else {
             console.log("Wrong input")
         }
@@ -45,7 +40,12 @@ $(() => {
     fetchRegistrations();
 })
 
-const fetchRegistrations = () => $.get("/api/registrations", list => formatList(list))
+const fetchRegistrations = () => {
+    $.get("/api/registrations", list => formatList(list))
+        .fail(jqXHR => {
+            $("#fail").html($.parseJSON(jqXHR.responseText).message)
+        });
+}
 
 const formatList = list => {
     let msg = "";

@@ -1,5 +1,7 @@
 package oslomet.webprog.ukeoppgaver.repository;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -14,6 +16,8 @@ public class VehicleRepository {
 
     @Autowired
     private JdbcTemplate db;
+
+    Logger logger = LoggerFactory.getLogger(VehicleRepository.class);
 
     public void addRegistrations(Registration registration){
         try {
@@ -42,7 +46,7 @@ public class VehicleRepository {
         try {
             return db.query("select * from Registrations", new BeanPropertyRowMapper<>(Registration.class));
         } catch (Exception e) {
-            System.out.println("Noe gikk glat i repo sin getRegistration");
+            logger.error(e + "\n Noe gikk glat i repo sin getRegistration");
             return null;
         }
     }
@@ -51,6 +55,7 @@ public class VehicleRepository {
         try {
             return db.query("select * from Registrations where id=?", new BeanPropertyRowMapper<>(Registration.class), id).get(0);
         } catch (Exception e) {
+            logger.error(e + "\n Noe gikk glat i repo sin getOneRegistration");
             return null;
         }
     }

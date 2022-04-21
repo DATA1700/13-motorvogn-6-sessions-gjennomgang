@@ -18,7 +18,6 @@ $(() => {
             window.location.href = "/";
         });
     })
-
 });
 
 const id = window.location.search.substring(1);
@@ -34,5 +33,8 @@ const getOneRegistration = () => {
         $("#chosenBrand").val(registration.brand).change();
         $.ajaxSetup({async: true});
         $("#chosenType").val(registration.type);
-    });
+    })
+        .fail(jqXHR => {
+            $("#fail").html($.parseJSON(jqXHR.responseText).message)
+        });
 };
