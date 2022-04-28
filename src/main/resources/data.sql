@@ -13,3 +13,7 @@ values  ('Volvo','V30'),
 insert into Registrations(ssn, name, address, characteristics, brand, type)
 values   ('12345678901', 'Ulrik', 'OsloMet', 'AB12345', 'Toyota', 'Corolla'),
          ('09876543210', 'Ulrik', 'OsloMet', 'AB12345', 'Toyota', 'Corolla');
+
+insert into User ( brukernavn, passord, admin)
+values ('admin', 'admin', 1),
+    ('user', 'user', 0);

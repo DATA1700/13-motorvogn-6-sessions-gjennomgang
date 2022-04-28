@@ -15,3 +15,11 @@ create table Registrations (
     primary key (id),
     foreign key (brand, type) references Cars(brand, type)
 );
+
+create table User (
+    id integer auto_increment not null,
+    brukernavn varchar(50) not null,
+    passord varchar(50) not null,
+    admin smallint not null,
+    primary key (id)
+);

@@ -29,9 +29,18 @@ $(() => {
         $.ajax("/api", {
             type: "DELETE",
             success: () => fetchRegistrations(),
-            error: (jqXhr, textStatus, errorMessage) => console.log(errorMessage)
+            error: (jqXhr, textStatus, errorMessage) =>  {
+                console.log(errorMessage)
+                $("#fail").html(jqXhr.responseJSON.message)
+            }
         })
     });
+
+    $("#loggUt").click(() => {
+        $.get("/api/logout", () => {
+            window.location.href = "/login.html";
+        })
+    })
 
     formatBrandInput();
 
@@ -71,9 +80,19 @@ const formatList = list => {
     });
 }
 
-const deleteSingleRegistration = id => $.get("/api/deleteSingleRegistration?id=" + id, () => {
+/*const deleteSingleRegistration = id => $.get("/api/deleteSingleRegistration?id=" + id, () => {
     fetchRegistrations();
 })
+ */
+
+function deleteSingleRegistration (id) {
+    $.get("/api/deleteSingleRegistration?id=" + id, function() {
+        fetchRegistrations();
+    }).fail(function(jqXHR)  {
+        console.log(jqXHR)
+        $("#fail").html(jqXHR.responseJSON.message)
+    });
+}
 
 const formatBrandInput = () => $.get("/api/cars", list => {
     let msg = "<select class='form-control' id='chosenBrand'>";

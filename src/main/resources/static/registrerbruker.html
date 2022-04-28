@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="registrerbruker.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <form onsubmit="registrer(event)">
+        <div class="form-group">
+            <label for="brukernavn">Brukernavn</label>
+            <input class="form-control" type="text" id="brukernavn"/>
+        </div>
+        <div class="form-group">
+            <label for="passord">Passord</label>
+            <input class="form-control" type="password" id="passord"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Registrer</button>
+        <p id="feilmelding" style="color: red"></p>
+    </form>
+
+
+</div>
+
+</body>
+</html>

@@ -34,7 +34,13 @@ const getOneRegistration = () => {
         $.ajaxSetup({async: true});
         $("#chosenType").val(registration.type);
     })
-        .fail(jqXHR => {
+        .fail((jqXHR, status) => {
+            console.log(jqXHR);
+
+            if (jqXHR.status === 401) {
+                window.location.href = "/";
+            }
+
             $("#fail").html($.parseJSON(jqXHR.responseText).message)
         });
 };
